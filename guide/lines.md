@@ -14,6 +14,8 @@ out rather than laid wrongly.
 
 ## Fences
 
+![Fences](fence.jpg)
+
 Panels along the line, posts where pieces meet, and gates.
 
 | Setting | What it does |
@@ -40,6 +42,8 @@ Gates are found by name (`Wall_Gate_*`), and a pair of leaves is placed as one g
 
 ## Streams
 
+![Streams](streams.jpg)
+
 Water laid piece by piece, and still water in a drawn area.
 
 | Setting | What it does |
@@ -62,6 +66,8 @@ tiles mean.
 
 ## Train tracks
 
+![Train tracks](rail.jpg)
+
 | Setting | What it does |
 |---|---|
 | **Overlap** | As for water: how far each piece laps the one before. |
@@ -72,6 +78,8 @@ tiles mean.
 ---
 
 ## Powerlines
+
+![Powerlines](power.jpg)
 
 Two different things behind one panel, decided by what you pick:
 

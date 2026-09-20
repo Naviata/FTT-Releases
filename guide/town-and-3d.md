@@ -4,6 +4,8 @@
 
 ## Town Planner
 
+![Town Planner](town.jpg)
+
 Clicks buildings onto the map, turned to line up with the nearest road.
 
 **Placing.** Pick a building from the palette and click the map. **Ctrl+right-click** takes the last

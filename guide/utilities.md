@@ -4,6 +4,8 @@
 
 ## Relocate / Re-prefix
 
+![Relocate](relocate.jpg)
+
 Moves a mod to a new drive, folder or name, and relinks every reference inside it — the texture and
 material paths in each model, the texture paths in each material, and the `CfgPatches` class that
 names the mod.
@@ -52,6 +54,8 @@ reverse-engineered to be trusted, and a position 3% wrong on somebody's terrain 
 Export a layer to `.txt` from TerrainBuilder and use Import objects — that is exact.
 
 ## Economy Editor
+
+![Economy Editor](economy.jpg)
 
 Opens **RaG Economy Manager** by RaG Tyson, pointed at this terrain's own economy files rather than
 empty. It needs Python with `tkinterdnd2` and `pillow`; the panel says what is missing and how to

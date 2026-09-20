@@ -2,7 +2,10 @@
 
 # Terrain Creation
 
-Seven steps, in the order the work happens. Pick a step on the left and its settings open beside it.
+![Terrain Creation](terrain.jpg)
+
+Seven steps, in the order the work happens. Pick a step on the left and its settings open
+beside it, with a lit arrow pointing at the one you have open.
 
 ## 1. Mapframe calculator
 
