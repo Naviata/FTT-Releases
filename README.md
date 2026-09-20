@@ -15,8 +15,13 @@ to unpack. Put it anywhere and run it.
 The first time you run a new version, Windows may say *"Windows protected your PC"* because the exe
 is not code-signed. Click **More info**, then **Run anyway**.
 
-FTT checks this page once a day and shows a notice in its status bar when a new version is out, so
-you only ever need to download it once.
+FTT checks this page every time it starts and shows a yellow notice at the top of the window when a
+new version is out, so you only ever need to download it once.
+
+## Guide
+
+**[How to use FTT →](GUIDE.md)** — opening a terrain, checking it picked the right files, planting a
+wood and importing it into TerrainBuilder, what every tool does, and what the warnings mean.
 
 ## Starter terrain
 
