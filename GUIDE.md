@@ -97,8 +97,9 @@ library folder. Each row has:
 Your choice is saved in the project's `.fttproj` file, so it is made once. If your terrain has no
 project file yet, the panel says so — save the project on Home to keep the choice.
 
-> **Worth knowing:** FTT reads **BMP and PNG** imagery. A satellite map exported as TIFF, JPEG or a
-> Photoshop file cannot be read; FTT will say so by name. Export it as a BMP.
+> **Worth knowing:** FTT reads **BMP, PNG, JPEG and TIFF** imagery, including the GeoTIFF that QGIS
+> writes by default. What it cannot read — a Photoshop file, a `.paa`, a BigTIFF, a 16-bit TIFF — it
+> names, with what to save it as instead.
 
 ---
 
@@ -190,7 +191,7 @@ of several files, or counting what loaded, is not a fault and is not listed.
 
 | What it says | What it means | What to do |
 |---|---|---|
-| *No satellite map FTT can read… this project has SatMap.tif* | Your imagery is in a format FTT does not read. | Export it as a BMP, or point at another file in Settings → PROJECT FILES. |
+| *No satellite map FTT can read… this project has SatMap.psd* | Your imagery is in a format FTT does not read: Photoshop files, `.paa`, BigTIFF and 16-bit TIFFs among them. | Save it as a BMP, PNG, JPEG or plain 8-bit TIFF, or point at another file in Settings → PROJECT FILES. |
 | *No model libraries found* | FTT was given a folder with no `.tml` files under it. | Open the terrain's `source` folder, or point at the library folder in Settings. |
 | *all N objects fall outside the terrain* | An object list is in different coordinates — usually a raw UTM export. | Import it with an offset, or shift it in TerrainBuilder. |
 | *N template name(s) refer to different models* | Two libraries use one name for different models. | An export using that name is ambiguous — drop one of the libraries. |
