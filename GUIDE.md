@@ -20,6 +20,16 @@ about them.
 - [Controls](#controls)
 - [Where FTT keeps things](#where-ftt-keeps-things)
 
+**A page per tool, with every setting explained:**
+[Forester](guide/forester.md) ·
+[Roads](guide/roads.md) ·
+[Fences, streams, track, powerlines](guide/lines.md) ·
+[Hole Generator](guide/holes.md) ·
+[Town Planner and 3D View](guide/town-and-3d.md) ·
+[Terrain Creation](guide/terrain-creation.md) ·
+[Utilities and reports](guide/utilities.md) ·
+[Settings](guide/settings.md)
+
 ---
 
 ## Before you start
@@ -96,7 +106,8 @@ project file yet, the panel says so — save the project on Home to keep the cho
 
 ![Forester](guide/forester.jpg)
 
-**Forester** in the left menu.
+**Forester** in the left menu. Every setting it has is explained in
+[the Forester page](guide/forester.md).
 
 1. **Mark the ground.** Use the tools down the left of the map:
    - *Area* — click corner by corner. Hold **Shift** to start a second, separate area.
@@ -141,17 +152,17 @@ Every one of these draws on the map and exports an object list the same way.
 
 | Tool | What it does |
 |---|---|
-| **Roads** | Lay roads that snap together — junctions, street grids, sidewalks, lamps, signs, decals. Roads are saved so you can reopen and re-lay them. Click a node on a laid road to start another from it. |
-| **Fences** | Panels, posts and gates along a drawn line. A gate replaces a panel, so the run stays the length you drew. |
-| **Streams** | Water laid piece by piece, tilted to follow the fall of the ground, with a height above ground you set. |
-| **Train tracks** | Straight track turned along the line, with the same overlap rule as water. |
-| **Powerlines** | Poles at a spacing, or pre-assembled high-voltage spans with a tower on each corner. |
-| **Town Planner** | Click buildings onto the map; they turn to line up with the nearest road. |
-| **Hole Generator** | Mark terrain holes on the map or in 3D, and write them to `holes.cfg` for tunnels and underground spaces. |
-| **3D View** | Fly over your own heightfield with the satellite map draped over it, in three looks: satellite, plain ground, mesh. |
-| **Terrain Creation** | Mapframe calculator, start a terrain from the FTT sample, edit `layers.cfg` and `config.cpp`, check the navmesh, pack a PBO. |
-| **Relocate** | Move a mod to a new name or place and relink every path inside it. |
-| **Economy Editor** | Reads your CE territories and checks each zone against the real ground. |
+| **[Roads](guide/roads.md)** | Lay roads that snap together — junctions, street grids, sidewalks, lamps, signs, decals. Roads are saved so you can reopen and re-lay them. Click a node on a laid road to start another from it. |
+| **[Fences](guide/lines.md)** | Panels, posts and gates along a drawn line. A gate replaces a panel, so the run stays the length you drew. |
+| **[Streams](guide/lines.md)** | Water laid piece by piece, tilted to follow the fall of the ground, with a height above ground you set. |
+| **[Train tracks](guide/lines.md)** | Straight track turned along the line, with the same overlap rule as water. |
+| **[Powerlines](guide/lines.md)** | Poles at a spacing, or pre-assembled high-voltage spans with a tower on each corner. |
+| **[Town Planner](guide/town-and-3d.md)** | Click buildings onto the map; they turn to line up with the nearest road. |
+| **[Hole Generator](guide/holes.md)** | Mark terrain holes on the map or in 3D, and write them to `holes.cfg` for tunnels and underground spaces. |
+| **[3D View](guide/town-and-3d.md)** | Fly over your own heightfield with the satellite map draped over it, in three looks: satellite, plain ground, mesh. |
+| **[Terrain Creation](guide/terrain-creation.md)** | Mapframe calculator, start a terrain from the FTT sample, edit `layers.cfg` and `config.cpp`, check the navmesh, pack a PBO. |
+| **[Relocate](guide/utilities.md)** | Move a mod to a new name or place and relink every path inside it. |
+| **[Economy Editor](guide/utilities.md)** | Reads your CE territories and checks each zone against the real ground. |
 
 ![Hole Generator](guide/hole.jpg)
 
@@ -191,6 +202,7 @@ of several files, or counting what loaded, is not a fault and is not listed.
 
 ## Controls
 
+[The Settings page](guide/settings.md) explains the rest of what is there.
 Settings → **Show keybindings** lists these in the program. The ones worth knowing:
 
 | | |
