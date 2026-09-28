@@ -23,6 +23,8 @@ about them.
 **A page per tool, with every setting explained:**
 [Forester](guide/forester.md) ·
 [Roads](guide/roads.md) ·
+[Import from QGIS](guide/qgis.md) ·
+[Edit heightmap](guide/heightmap.md) ·
 [Fences, streams, track, powerlines](guide/lines.md) ·
 [Hole Generator](guide/holes.md) ·
 [Town Planner and 3D View](guide/town-and-3d.md) ·
@@ -83,19 +85,19 @@ column says whether the work drive, DayZ Tools and the map configs are where FTT
 A terrain often holds several heightmaps and several satellite maps, from different stages of the
 work. FTT ranks them and picks one. When it picks wrongly, correct it rather than renaming files:
 
-**Settings → PROJECT FILES**
+**Home → Project files**
 
-![Settings](guide/settings.jpg)
-
-Six rows — heightfield, satellite map, surface mask, `layers.cfg`, `config.cpp`, and the template
-library folder. Each row has:
+The terrain's **mapframe** at the top — its size and origin, which FTT reads off the heightfield and
+you can set by hand if the map shows at the wrong size. Then a row for each file — heightfield,
+satellite map, surface mask, normal map, `layers.cfg`, `config.cpp`, `holes.cfg`, shapefiles and the
+template library folder. Each row has:
 
 - a **dropdown of every matching file in the project**, so you can pick between them;
 - the **full path** of the one in use, underneath;
 - **Browse…**, for a file kept somewhere else entirely.
 
-Your choice is saved in the project's `.fttproj` file, so it is made once. If your terrain has no
-project file yet, the panel says so — save the project on Home to keep the choice.
+Your choice is kept for the terrain, so it is made once — in its `.fttproj` if it has one,
+otherwise in FTT's own data folder.
 
 > **Worth knowing:** FTT reads **BMP, PNG, JPEG and TIFF** imagery, including the GeoTIFF that QGIS
 > writes by default. What it cannot read — a Photoshop file, a `.paa`, a BigTIFF, a 16-bit TIFF — it
@@ -122,8 +124,9 @@ project file yet, the panel says so — save the project on Home to keep the cho
    changes it.
 4. **Generate.** The trees appear on the map at the size of the models they stand for.
 5. **Thin it out if you want.** *Pick* selects objects (drag a box for many, Ctrl-click to add);
-   *Rub out* removes them as you drag. **Ctrl+Z** puts back the last thing you did.
-6. **Export to TerrainBuilder.** Writes an object list `.txt` — put it in your terrain's
+   *Rub out* removes them as you drag. With *Pick*, drag an object to move it, or its ring to turn
+   it. **Ctrl+Z** puts back the last thing you did.
+6. **Export to TerrainBuilder.** Writes an object list — `ftt_trees.txt` — put it in your terrain's
    `shapefiles` folder.
 
 **Save the area** if you may come back to it: the shape and the whole mix are kept in the project,
@@ -149,19 +152,22 @@ it can offer models your TerrainBuilder project has not loaded yet.
 
 ## The other tools
 
-Every one of these draws on the map and exports an object list the same way.
+Every one of these draws on the map and exports an object list the same way, named for the tool —
+`ftt_roads.txt`, `ftt_fences.txt` and so on.
 
 | Tool | What it does |
 |---|---|
-| **[Roads](guide/roads.md)** | Lay roads that snap together — junctions, street grids, sidewalks, lamps, signs, decals. Roads are saved so you can reopen and re-lay them. Click a node on a laid road to start another from it. |
-| **[Fences](guide/lines.md)** | Panels, posts and gates along a drawn line. A gate replaces a panel, so the run stays the length you drew. |
-| **[Streams](guide/lines.md)** | Water laid piece by piece, tilted to follow the fall of the ground, with a height above ground you set. |
+| **[Import from QGIS](guide/qgis.md)** | Roads, rivers, walls, power lines, woods and building footprints from a QGIS export, each handed to the tool that lays it. |
+| **[Edit heightmap](guide/heightmap.md)** | Carve rivers, flatten roads and buildings, and write it into your heightmap. The original is kept as a backup. |
+| **[Roads](guide/roads.md)** | Lay roads that snap together — junctions, bridges, sidewalks, lamps, signs, cracks. Every road is saved, an imported one by its street name; pick one and **Retype** it. |
+| **[Fences](guide/lines.md)** | Panels, posts and gates along a drawn line, with broken panels and holes if you want them. |
+| **[Streams](guide/lines.md)** | Water laid piece by piece, lifted above the ground or sitting in a channel carved for it. |
 | **[Train tracks](guide/lines.md)** | Straight track turned along the line, with the same overlap rule as water. |
 | **[Powerlines](guide/lines.md)** | Poles at a spacing, or pre-assembled high-voltage spans with a tower on each corner. |
-| **[Town Planner](guide/town-and-3d.md)** | Click buildings onto the map; they turn to line up with the nearest road. |
+| **[Town Planner](guide/town-and-3d.md)** | Click buildings onto the map, or fill QGIS footprints; they turn to line up with the road, on level ground. |
 | **[Hole Generator](guide/holes.md)** | Mark terrain holes on the map or in 3D, and write them to `holes.cfg` for tunnels and underground spaces. |
-| **[3D View](guide/town-and-3d.md)** | Fly over your own heightfield with the satellite map draped over it, in three looks: satellite, plain ground, mesh. |
-| **[Terrain Creation](guide/terrain-creation.md)** | Mapframe calculator, start a terrain from the FTT sample, edit `layers.cfg` and `config.cpp`, check the navmesh, pack a PBO. |
+| **[3D View](guide/town-and-3d.md)** | Fly over your own heightfield with the satellite map draped over it and your trees and buildings standing on it. |
+| **[Terrain Creation](guide/terrain-creation.md)** | Mapframe calculator, start a terrain from the FTT sample, import from QGIS, edit `layers.cfg` and `config.cpp`, check the navmesh, pack a PBO. |
 | **[Relocate](guide/utilities.md)** | Move a mod to a new name or place and relink every path inside it. |
 | **[Economy Editor](guide/utilities.md)** | Reads your CE territories and checks each zone against the real ground. |
 
@@ -212,6 +218,8 @@ Settings → **Show keybindings** lists these in the program. The ones worth kno
 | **Right-drag** | Pan the map |
 | **Ctrl+right-click** | Undo the last point |
 | **Shift** | Start a second shape while drawing |
+| **Drag** (Pick tool) | Move a placed object; drag its ring to turn it |
+| **Right-click** a saved road | Rename, open or remove it |
 | **Ctrl+Z** | Undo |
 | **Ctrl-click** | Add to a selection |
 | **Wheel** | Zoom |

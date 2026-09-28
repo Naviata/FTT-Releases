@@ -2,8 +2,8 @@
 
 # Roads
 
-Lays road pieces along a line you draw, so that each piece meets the next — with junctions,
-sidewalks, lamps, signs, decals and a street-grid fill.
+Lays road pieces along a line you draw, so that each piece meets the next — with junctions, bridges,
+sidewalks, lamps, signs and cracks, and the ground shaped under it.
 
 ![Roads](roads.jpg)
 
@@ -11,84 +11,72 @@ sidewalks, lamps, signs, decals and a street-grid fill.
 
 Click the map to add points and double-click to finish. **Ctrl+right-click** takes the last point
 back, **Shift+click** starts a second line, and the ring, rectangle and line tools draw those shapes
-in one drag. One press of **Lay road** lays every line you have drawn.
+in one drag.
 
 Pick the **road type** from the pictures along the bottom bar: FTT reads every road family in your
-template libraries and shows each one's texture. Only families with enough pieces to chain are
-offered, so crosswalks and single junction pieces do not clutter the list.
+template libraries and shows each one's texture.
 
-**Export to TerrainBuilder** writes the object list, exactly as the Forester does.
+Every line drawn is laid in one press, as one network: lines that continue each other are joined,
+and where roads meet, the side road stops exactly at the kerb of the road carrying on — or on
+DayZ's junction piece, where there is one for that pair of types.
 
-## The bar, tab by tab
+| Button | What it does |
+|---|---|
+| **Edit heightmap** | The ground asked for under the roads — see [Edit heightmap](heightmap.md). |
+| **Lay road** | Lays everything drawn. |
+| **Retype** | Lays a chosen road again in the type picked (below). |
+| **Export as Objects** | Writes the object list for TerrainBuilder. |
+| **Export as Road network** | Checks TerrainBuilder is open and the work drive mounted. Building the road network inside TerrainBuilder is coming. |
+
+## Roads from QGIS
+
+**Use QGIS Road Data** brings in every road from the export. The table under it sets the type each
+surface is laid in — **Asphalt roads as**, **Gravel roads as**, **Dirt tracks as** — and the line
+under the button counts them: *"4,061 roads: 2,441 asphalt as asf1, 683 gravel as grav, 937 dirt as
+mud."* Then one press of **Lay road**. See [Import from QGIS](qgis.md) for which classes go where.
+
+## Saved roads
+
+Every road you lay is kept under **Saved roads** in the layers column — an imported road as one
+entry per street, by its name.
+
+- **Click** a road to light it in red on the map.
+- **Retype:** pick a road type in the bottom bar and press **Retype**. That road changes; every other
+  road keeps its own type, and side roads still meet it at its new kerb.
+- **Right-click** a road to **Rename**, **Open** or **Remove** it. A name you give is kept when the
+  road is laid again.
+- **Open** puts the line and its settings back without laying anything.
+
+Saved roads are kept with the terrain, including a terrain opened by its folder.
+
+## The panel
 
 ### Road
 
 | Setting | What it does |
 |---|---|
-| **Tightest corner** | The sharpest corner the road may make. Larger gives sweeping bends; 0 allows every curve the type has. |
+| **Tightest corner** | The sharpest corner the road may make. |
 | **Run all the way to the last point** | Carries the road to the end of your line rather than stopping at the last piece that fits. |
-| **Dual carriageway (m)** | Lays two roads either side of the line you drew, this far apart. |
-| **Barrier down the middle** | Runs a crash barrier or concrete divider between them — one or two, and how far apart. |
-| **Cracks** | Drops crack and patch decals on this share of the pieces, each turned at random. DayZ ships 105 of them. |
+| **Dual carriageway (m)** | Lays two roads either side of the line you drew, this far apart, with an optional barrier between. |
+| **Cracks** / **Type of Cracks** | Drops crack decals on this share of the pieces. **Type of Cracks** shows how many kinds are in use; hover a crack for a bigger picture. |
+| **Snap to 15° angles** | Keeps drawn corners tidy. |
+| **Shape the ground under the road** | Holds the road's width plus a **Shoulder** level, keeps it under the **Steepest grade**, never cuts or fills more than **Deepest cut or fill**, and banks back to the ground (**Banks**: 1 in 1, 1 in 2, 1 in 3). |
 
 ### Attach
 
-Start a road from the blue handle at the end of one already laid and a junction goes in between,
-picked to match both road types. **Snap to 15° angles** keeps drawn corners tidy.
+The box at the top shows the road the attachments apply to — pick one in Saved roads or click it
+with the select tool.
 
-To change a road you already have: pick it with the object tool, choose a type, then **Retype** — it
-is re-laid along the line it already follows.
-
-### Signs
-
-| Setting | What it does |
+| Tab | What it does |
 |---|---|
-| **Corner signs** | A warning sign before every bend sharper than the threshold. Which hand it is comes from the way the road actually turns. |
-| **Sharper than** | How sharp a bend has to be to earn one. Default 25°. |
-| **Speed signs** | DayZ ships two speeds and no others, so this is a choice between them. |
-| **Spacing** | Metres of road between speed signs. |
-| **Standing on** / **Turn them round** | Which side they stand, and which way they face. |
-| **Place one by hand** | Click the map to put down the chosen sign. Ctrl+right-click takes it back. |
-| **Add to picked road** | Signs a road already on the map. Pick it with the object tool first. |
-
-### Sidewalks
-
-Lays a sidewalk beside the road, set back by half the carriageway. Choose the family, **which side**,
-and a **gap from the road**. **Add sidewalks** does it to a road already picked. Only the sidewalk
-families FTT can measure exactly are offered; the rest are refused with the reason rather than laid
-wrongly.
-
-### Lamps
-
-| Setting | What it does |
-|---|---|
-| **One every (m)** | Metres of road between lamps, measured along the road rather than across the map. |
-| **Standing on** | Left, right, or both — which alternates them, so no two stand opposite each other and the spacing still means one lamp per so many metres. |
-| **Back from the kerb (m)** | How far off the carriageway they stand. |
-| **Add to picked road** | Lamps a road already on the map. |
-
-Which way a lamp's arm reaches is set once per lamp type in **Settings → LAMP ARMS**.
-
-### End caps
-
-An end piece at the start, the finish, or both — and **Add to picked road** for one already laid.
-
-### Junctions
-
-Pick a laid junction with the object tool and **Change junction** turns a T into a crossroads or
-back. **Add to the end of the picked road** puts one on a loose end, matched to both road types.
-Only what FTT laid can be changed: a junction in an imported layer belongs to your TerrainBuilder
-file.
+| **Signs** | Corner warnings before sharp bends, speed signs at a spacing, which side, and **Place one by hand**. |
+| **Sidewalks** | A sidewalk beside the road — family, side and gap from the road. |
+| **Lamps** | One every so many metres, left, right or alternating, and how far back from the kerb. |
+| **End caps** | An end piece at the start, the finish or both. |
+| **Junctions** | Turn a laid T into a crossroads or back. |
+| **Bridges** | **Bridge rivers and ravines**, and how deep a ravine has to be. Put in as a road is laid, with the ground shaping on. |
 
 ### Grid — *coming soon*
 
-Draw a rectangle, pick a road type for each direction, and fill the block with streets and the
-junctions between them. It is greyed because DayZ's junction pieces only cover some pairs of road
-types, so most grids would come out with bare crossings. The panel says which pairs are complete.
-
-## Saved roads
-
-Every road you lay is recorded with its line, type and settings, under **Saved roads** in the layers
-column. Laying the same line in the same type again replaces its entry rather than adding another,
-and a road can be renamed or forgotten. Opening one restores the line and the settings without
-laying anything, so it cannot overwrite what you are working on.
+Fill a rectangle with streets. Greyed because DayZ's junction pieces only cover some pairs of road
+types.

@@ -8,8 +8,8 @@
 
 Clicks buildings onto the map, turned to line up with the nearest road.
 
-**Placing.** Pick a building from the palette and click the map. **Ctrl+right-click** takes the last
-one back. **Pick at random** takes a different building from the palette for each click, from the
+**Placing.** Pick a building from the palette and click the map. **Ctrl+right-click**, or the undo
+button in the map tools, takes the last one back. **Pick at random** takes a different building from the palette for each click, from the
 **seed** — so a street is not the same house twenty times. Re-roll the seed for a different set.
 
 **Facing.**
@@ -25,9 +25,21 @@ Front and back cannot be told apart from a model's shape — DayZ's buildings do
 they face in anything FTT can read — so the flip is offered rather than guessed. About one building
 in five is square enough to have no long side at all, and the panel says so rather than pretending.
 
-**What is offered.** A model is a building if it carries a door selection, or if it is named as a
-building in `mapgrouppos.xml`. Parts — walls, roofs, balconies — satisfy neither and stay out of the
-list.
+**What is offered.** A model is a building if it has doors, or if it is named as a building in
+`mapgrouppos.xml`. Parts — walls, roofs, balconies — have neither and stay out of the list. The
+palette has tabs for **Houses**, **Blocks**, **Sheds**, **Stores**, **Civic**, **Offices**,
+**Industrial**, **Military**, **Churches** and **Other** (wrecks, ruins, bunkers, fuel stations,
+monuments).
+
+**From QGIS.** **Use QGIS Building Data** puts a building on every footprint in the export: the one
+whose size fits best, turned to lie along it. With **All** showing it uses houses, blocks, sheds,
+stores, civic and offices; pick a tab to use only that.
+
+**Level the ground under buildings.** A flat pad under each building, with a **Margin** round it,
+**Level at** the average, lowest or highest of the ground under it. Written with
+[Edit heightmap](heightmap.md).
+
+**Edit heightmap**, **Clear** and **Export to TerrainBuilder** sit at the bottom.
 
 ---
 
@@ -36,10 +48,14 @@ list.
 ![3D View](fly.jpg)
 
 Flies over your own heightfield, with the satellite map draped over it, water, and every placed
-object drawn as a box at its real size. It is a viewer: nothing here changes your terrain.
+object at its real size — trees as a trunk and a crown, buildings with a pitched roof, bushes and
+rocks as domes, everything else as a box. It is a viewer: nothing here changes your terrain.
 
-**Flying.** Mouse to look, the usual keys to move, and the camera never drops below the ground.
-Object boxes are drawn near the camera up to a cap you can raise, so a town does not cost a frame.
+**Flying.** Mouse to look, **W A S D** to fly, **Q** and **E** for down and up, **Shift** to hurry.
+The camera never drops below the ground.
+
+**Draw distance** — **Near**, **Normal**, **Far** or **Furthest** — sets how far out objects are
+drawn. Far is the default; Near and Normal are there for a slower machine.
 
 **Three looks:**
 
@@ -51,4 +67,4 @@ Object boxes are drawn near the camera up to a cap you can raise, so a town does
 
 The satellite drape is one image over the whole terrain, so it goes soft near the ground — that is
 resolution, not a fault. Real models are not drawn: DayZ ships them compressed in a way nothing
-outside its own tools can read, so a box at the model's exact size is what the data supports.
+outside its own tools can read, so a shape at the model's exact size is what the data supports.

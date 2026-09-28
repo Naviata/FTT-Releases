@@ -35,18 +35,26 @@ the object lists, the TerrainBuilder layers, and the model pictures.
 
 ## Project files
 
-The six locations a project depends on, each with a dropdown of every matching file found, the full
-path of the one in use, and **Browse…** for a file kept elsewhere:
+Now on **Home → Project files**, a window of its own.
 
-heightfield · satellite map · surface mask · `layers.cfg` · `config.cpp` · template libraries folder
+**Mapframe.** The terrain's size and its easting and northing origin. FTT reads them off the
+heightfield — its columns times its cell size — and a heightfield exported at another size than the
+terrain shows the whole map at the wrong size. Set them by hand and **Apply mapframe**; **Use the
+heightfield's** puts back what the heightfield states.
+
+**Files.** Each location a project depends on, with a dropdown of every matching file found, the
+full path of the one in use, and **Browse…** for a file kept elsewhere:
+
+heightfield · satellite map · surface mask · normal map · `layers.cfg` · `config.cpp` · `holes.cfg` ·
+shapefiles · template libraries folder
 
 Imagery can be a **BMP, PNG, JPEG or TIFF**. Anything but a BMP is decoded once into a tile cache in
 the data folder, so the first open of a big JPEG or TIFF takes a minute and every one after it is
 immediate.
 
 FTT works these out when a terrain opens; this is how you overrule it without renaming or moving
-anything. Your choice is kept in the project's `.fttproj`, so it is made once — and if the terrain
-has no project file yet, the panel says the choice lasts only until FTT closes.
+anything. A choice is made once: it is kept in the project's `.fttproj`, or — for a terrain opened
+by its folder — in FTT's own data folder, for that terrain.
 
 ## Work drive
 

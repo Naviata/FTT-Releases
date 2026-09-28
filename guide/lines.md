@@ -7,6 +7,10 @@ double-click to finish, **Ctrl+right-click** to take a point back, **Shift+click
 line, and the ring, rectangle and line tools for those shapes. One press of **Lay** lays every line
 drawn, and **Export to TerrainBuilder** writes the object list.
 
+Each has a **Use QGIS … Data** button at the top of its settings that brings in its layer from a
+QGIS export — see [Import from QGIS](qgis.md). Streams, Train tracks and Powerlines have
+**Edit heightmap** beside Export — see [Edit heightmap](heightmap.md).
+
 Each picks what it can offer by reading your models: a piece whose size FTT cannot measure is left
 out rather than laid wrongly.
 
@@ -36,6 +40,10 @@ And where in the stretch: **Random**, drawn from the seed, so a re-roll moves it
 repeats it; or **Middle**, mid-stretch every time. A gate *replaces* a panel rather than being
 inserted, so the fence stays the length you drew.
 
+**Damage.** A share of the panels laid broken (**Broken**), with a hole torn in them (**Holes**), or a
+mix (**Both**) — DayZ's own `_D` and `_Hole` panels, drawn from the seed. A damaged panel replaces a
+whole one, so the run stays the same length.
+
 Gates are found by name (`Wall_Gate_*`), and a pair of leaves is placed as one gate.
 
 ---
@@ -56,6 +64,17 @@ Water laid piece by piece, and still water in a drawn area.
 
 Only straight pieces are used. The curve models are cut to fit particular places on particular maps,
 so bends are made by turning straights and overlapping them at the outer corner.
+
+**Carve a channel.** Cuts a bed into the ground for the water to sit in, instead of lifting it:
+
+| Setting | What it does |
+|---|---|
+| **Water width** / **Depth** | How wide and deep the bed is. On a coarse heightmap the width you get is the grid's, and the panel says what it will be before anything is cut. |
+| **Banks** | **Honour the width**, or **Keep banks low**. |
+| **Flows** | **Downhill** works it out from the ground; **As drawn** follows the line's direction, which is how OpenStreetMap draws a waterway; **Against the drawing** reverses it. |
+
+The water never runs uphill: a rise small enough is cut through, a real one is followed and
+reported. The channel is written with [Edit heightmap](heightmap.md).
 
 **Pond** (second tab). Draw an area, choose **Pond** (mossy) or **Lake** (clearer), and **Fill with
 water**. Tiles are flat and all sit at the height of the ground under the middle of the area, so the

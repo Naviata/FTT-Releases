@@ -23,6 +23,8 @@ The tools sit down the left of the map. Anything you mark is shown in green.
 have one corner removed by right-clicking the dot itself. One wood can be several areas; they are
 filled together, and the count and hectares are shown under the map.
 
+**Use QGIS Forest Data** adds the woods from a QGIS export as areas — see [Import from QGIS](qgis.md).
+
 ## The species mix
 
 The right-hand column is the model library; the box at its foot is the mix.
@@ -47,19 +49,22 @@ The right-hand column is the model library; the box at its foot is the mix.
 | **Randomise scale** | Varies size between **Smallest** and **Largest** (10–200%). Off, each model keeps the range its template was authored with. |
 | **Add to what is already there** | Keeps clear of what is already in the preview *and* of the objects in your imported layers, so a second wood does not land on the first. |
 | **Lay on the ground slope** | *Per model* — each template decides (the default). *Upright* — everything stands straight. *Lay flat* — everything lies along the ground, for rocks and clutter. |
+| **Sit models on the ground** | Lifts a model that reaches far below its own origin, so its trunk does not start underground. **Root flare** is how much of a model is meant to be below the ground. Off by default. |
 | **Ground surfaces** | A list of the surfaces in `layers.cfg` with the share of the map each covers. Tick one to keep objects off it — for example no trees on concrete. |
 
 ## Generating and exporting
 
 **Generate** fills every marked area at once. Objects are drawn at the size of the model they stand
-for, so the wood reads as a wood rather than a field of identical dots.
+for, so the wood reads as a wood rather than a field of identical dots. A large wood shows a card
+with how long it has left, and **Cancel**.
 
 Not right? Change a setting and press Generate again, or **Re-roll** for a different throw of the
 same settings. To thin it by hand, use **Pick** (drag a box, Ctrl-click to add) and **Rub out** from
-the map tools, with **Ctrl+Z** to undo.
+the map tools, with **Ctrl+Z** to undo. With **Pick**, drag an object to move it, or drag the ring
+round a picked object to turn it.
 
-**Export to TerrainBuilder** writes the object list. Put it in your terrain's `shapefiles` folder and
-import it as a layer.
+**Export to TerrainBuilder** writes the object list — `ftt_trees.txt` unless you name it. Put it in
+your terrain's `shapefiles` folder and import it as a layer.
 
 ## Saved areas
 

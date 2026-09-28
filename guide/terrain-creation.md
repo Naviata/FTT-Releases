@@ -35,9 +35,10 @@ cloned so your new terrain does not arrive carrying someone else's object layers
 
 **Dry run** shows every file and every rewrite before anything is written.
 
-## 3. Import rasters from QGIS — *coming soon*
+## 3. Import from QGIS
 
-Needs a heightfield writer FTT does not have yet.
+Opens the [Import from QGIS](qgis.md) page: roads, rivers, walls, power lines, woods and building
+footprints from a QGIS export, each handed to the tool that lays it.
 
 ## 4. Surfaces and layers.cfg
 
